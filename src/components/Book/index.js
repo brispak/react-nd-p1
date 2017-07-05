@@ -7,7 +7,7 @@ const Book = (props) => (
       <div className="book-cover" style={{
         width: props.width,
         height: props.height,
-        backgroundImage: 'url("{props.imageUrl}")' }}></div>
+        backgroundImage: `url(${props.imageUrl})` }}></div>
       <Selector />
     </div>
     <div className="book-title">{props.title}</div>
