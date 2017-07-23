@@ -24,7 +24,7 @@ class BooksApp extends React.Component {
   }
 
   render() {
-    console.log("App books", this.state.books);
+    console.log("0. App component", this.state.books);
     return (
       <div>
         <Route
