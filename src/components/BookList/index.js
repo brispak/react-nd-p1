@@ -1,12 +1,32 @@
 import React, { Component } from "react";
-import BookShelf from "../BookShelf/index.js";
+import BookShelf from "../BookShelf";
+import SearchButton from "../SearchButton";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 class BookList extends Component {
   render() {
     console.log("1. BookList Component", this.props);
-    return <BookShelf books={this.props.books} />;
+    return (
+      <div className="list-books">
+        <div className="list-books-title">
+          <h1>MyReads</h1>
+        </div>
+        <BookShelf books={this.props.books} shelfTitle="Currently Reading" />
+        <BookShelf books={this.props.books} shelfTitle="Want to read" />
+        <BookShelf books={this.props.books} shelfTitle="Read" />
+        <div className="open-search">
+          <Link to="/search">Add a book</Link>
+        </div>
+      </div>
+    );
   }
 }
+
+BookList.propTypes = {
+  books: PropTypes.array,
+  shelfTitle: PropTypes.string
+};
 
 export default BookList;
 

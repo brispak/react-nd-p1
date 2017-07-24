@@ -1,7 +1,7 @@
 import React from "react";
 import * as BooksAPI from "./BooksAPI";
 import BookList from "./components/BookList";
-import OpenSearchButton from "./components/OpenSearchButton";
+import SearchBar from "./components/SearchBar";
 import { Route } from "react-router-dom";
 import "./App.css";
 
@@ -23,6 +23,14 @@ class BooksApp extends React.Component {
     });
   }
 
+  searchBook(books) {
+    BooksAPI.search(books, 20).then(book => {
+      this.setState(state => ({
+        books: state.book
+      }));
+    });
+  }
+
   render() {
     console.log("0. App component", this.state.books);
     return (
@@ -31,6 +39,17 @@ class BooksApp extends React.Component {
           exact
           path="/"
           render={() => <BookList books={this.state.books} />}
+        />
+
+        <Route
+          path="/search"
+          render={({ history }) =>
+            <SearchBar
+              onSearch={book => {
+                this.searchBook(book);
+                history.push("/");
+              }}
+            />}
         />
       </div>
     );
