@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Book from "../Book/index.js";
+import PropTypes from "prop-types";
 
 class BookShelf extends Component {
   render() {
@@ -17,9 +18,9 @@ class BookShelf extends Component {
                     key={book.id}
                     width="128"
                     height="193"
-                    imageUrl={book.imageLinks.smallThumbnail}
+                    imageUrl={book.imageLinks.thumbnail}
                     title={book.title}
-                    authors="Harper Lee"
+                    authors={book.authors[0]}
                   />
                 </li>
               );
@@ -30,5 +31,14 @@ class BookShelf extends Component {
     );
   }
 }
+
+BookShelf.propTypes = {
+  key: PropTypes.string,
+  width: PropTypes.string,
+  height: PropTypes.string,
+  imageUrl: PropTypes.string,
+  title: PropTypes.string,
+  authors: PropTypes.string
+};
 
 export default BookShelf;
