@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import BookShelfChanger from "../BookShelfChanger";
 
 class Book extends Component {
+  updateShelf = e => {
+    this.props.onUpdateShelf(e.target.value);
+  };
+
   render() {
-    console.log("3. Books component", this.props);
     return (
       <div className="book">
         <div className="book-top">
@@ -15,14 +17,27 @@ class Book extends Component {
               backgroundImage: `url("${this.props.imageUrl}")`
             }}
           />
-          <BookShelfChanger />
+          <div className="book-shelf-changer">
+            <select onChange={this.updateShelf} value={this.props.shelf}>
+              <option value="none" disabled>
+                Move to...
+              </option>
+              <option value="currentlyReading">Currently Reading</option>
+              <option value="wantToRead">Want to Read</option>
+              <option value="read">Read</option>
+              <option value="none">None</option>
+            </select>
+          </div>
         </div>
         <div className="book-title">
           {this.props.title}
         </div>
-        <div className="book-authors">
-          {this.props.authors}
-        </div>
+        {this.props.authors &&
+          this.props.authors.map((author, index) =>
+            <div className="book-authors" key={index}>
+              {`${author}`}
+            </div>
+          )}
       </div>
     );
   }

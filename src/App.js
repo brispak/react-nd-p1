@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import * as BooksAPI from "./BooksAPI";
 import BookList from "./components/BookList";
-import SearchBar from "./components/SearchBar";
+import Search from "./components/Search";
 import { Route } from "react-router-dom";
 import "./App.css";
 
@@ -26,14 +26,6 @@ class BooksApp extends Component {
     });
   };
 
-  searchBook(books) {
-    BooksAPI.search(books, 20).then(book => {
-      this.setState(state => ({
-        books: state.book
-      }));
-    });
-  }
-
   render() {
     return (
       <div>
@@ -50,11 +42,13 @@ class BooksApp extends Component {
         />
 
         <Route
+          exact
           path="/search"
           render={({ history }) =>
-            <SearchBar
-              onSearch={book => {
-                this.searchBook(book);
+            <Search
+              books={this.state.books}
+              onUpdateShelf={(book, shelf) => {
+                this.updateShelf(book, shelf);
                 history.push("/");
               }}
             />}

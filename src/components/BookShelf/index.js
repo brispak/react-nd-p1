@@ -21,7 +21,10 @@ class BookShelf extends Component {
                         height="193"
                         imageUrl={book.imageLinks.thumbnail}
                         title={book.title}
-                        authors={book.authors[0]}
+                        authors={book.authors}
+                        onUpdateShelf={shelf => {
+                          this.props.onUpdateShelf(book.id, shelf);
+                        }}
                       />
                     </li>
                   );

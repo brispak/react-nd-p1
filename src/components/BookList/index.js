@@ -21,8 +21,6 @@ class BookList extends Component {
   ];
 
   render() {
-    console.log("props book", this.props.books);
-    console.log("selfs", this.shelfs);
     return (
       <div className="list-books">
         <div className="list-books-title">
