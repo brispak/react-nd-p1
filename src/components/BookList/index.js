@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import BookShelf from "../BookShelf";
-import SearchButton from "../SearchButton";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 

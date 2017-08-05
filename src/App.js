@@ -59,12 +59,3 @@ class BooksApp extends Component {
 }
 
 export default BooksApp;
-
-// <Route path='/search' render={({ history }) => (
-//   <CreateContact
-//     onCreateContact={(contact) => {
-//       this.createContact(contact)
-//       history.push('/')
-//     }}
-//   />
-// )}/>
