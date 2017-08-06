@@ -46,9 +46,9 @@ class Book extends Component {
 
 Book.propTypes = {
   onUpdateShelf: PropTypes.func.isRequired,
-  authors: PropTypes.string,
+  authors: PropTypes.array,
   imageUrl: PropTypes.string,
-  shelf: PropTypes.array
+  shelf: PropTypes.string
 };
 
 export default Book;
