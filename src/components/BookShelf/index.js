@@ -40,11 +40,9 @@ class BookShelf extends Component {
 }
 
 BookShelf.propTypes = {
-  width: PropTypes.string,
-  height: PropTypes.string,
-  imageUrl: PropTypes.string,
+  books: PropTypes.array,
   title: PropTypes.string,
-  authors: PropTypes.string
+  onUpdateShelf: PropTypes.func.isRequired
 };
 
 export default BookShelf;

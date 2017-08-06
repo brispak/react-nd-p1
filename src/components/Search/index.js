@@ -45,7 +45,6 @@ class Search extends Component {
   };
 
   render() {
-    console.log("#this props", this.props);
     return (
       <div>
         <div className="search-books">
@@ -79,5 +78,10 @@ class Search extends Component {
     );
   }
 }
+
+Search.propTypes = {
+  books: PropTypes.array,
+  onUpdateShelf: PropTypes.func.isRequired
+};
 
 export default Search;

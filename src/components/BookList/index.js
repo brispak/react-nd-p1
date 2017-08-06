@@ -44,7 +44,8 @@ class BookList extends Component {
 }
 
 BookList.propTypes = {
-  books: PropTypes.array
+  books: PropTypes.array,
+  onUpdateShelf: PropTypes.func.isRequired
 };
 
 export default BookList;
